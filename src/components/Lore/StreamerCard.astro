@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
+
+const {logoStreamer} = Astro.props
+const {nameStreamer} = Astro.props
+const {socials} = Astro.props
+---
+
+<div class="w-[70vh] h-3/12 lg:w-3/12 lg:h-full flex lg:flex-col">
+    <div class="w-full h-full lg:h-8/12">
+        <Image src={logoStreamer} alt="ElLaucha" class="block w-full h-full object-contain"/>
+    </div>
+    <div class="w-full h-full lg:h-2/12 flex flex-col">
+        <h6 class="w-full h-6/12 font-title text-xl lg:text-2xl pt-2 text-center">{nameStreamer}</h6>
+        <div class="w-full h-6/12 lg:pt-6 flex justify-center gap-4">
+            {
+                socials.map(social => (
+                    <a href={social.url} target="_blank" rel="noopener noreferrer"
+                    aria-label="twitch">
+                        <Icon name={social.platform} class={"text-3xl"}/>
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</div>

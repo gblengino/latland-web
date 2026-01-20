@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import Logo from "../assets/latland_logo.png"
+import LatinLogo from "../assets/latin235_broken_logo.png"
+---
+
+<footer class="w-full min-h-[20vh] bg-stone-800 border-t px-4 py-4 border-stone-900">
+    <div class="h-8/12 w-full flex flex-col items-center lg:flex-row lg:justify-between">
+        <div class="w-[30vh]">
+            <Image src={Logo} alt="LatLand" class:list={"object-cover"}/>
+        </div>
+        <div class="flex flex-col gap-2 px-4 py-4">
+            <div class="flex flex-col items-center lg:flex-row h-12">
+                <picture class="w-12 h-12">
+                <Image src={LatinLogo} alt="Latin235" class="w-auto max-h-full object-cover"/>
+                </picture>
+                <p class="font-display text-3xl mt-4 lg:mt-0 text-center content-center">Proyecto creado por Latin235</p>
+            </div>
+            <div class="flex justify-center gap-4 mt-12 lg:mt-0">
+                <a href="https://www.twitch.tv/latin235" target="_blank" rel="noopener noreferrer">
+                    <Icon name="twitch" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
+                </a>
+                <a href="https://www.instagram.com/latin235_" target="_blank" rel="noopener noreferrer">
+                    <Icon name="instagram" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
+                </a>
+                <a href="https://www.x.com/latin235" target="_blank" rel="noopener noreferrer">
+                    <Icon name="twitter" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
+                </a>
+                <a href="https://www.tiktok.com/latin235" target="_blank" rel="noopener noreferrer">
+                    <Icon name="tiktok" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
+                </a>
+                <a href="https://www.twitch.tv/latin235" target="_blank" rel="noopener noreferrer">
+                    <Icon name="youtube" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="h-4/12 w-full">
+        <div class="flex flex-col items-center my-6 lg:my-0">
+            <p>Handcrafted by 
+                <a href="https://github.com/gblengino" target="_blank" rel="noopener noreferrer" class="underline">Giuliano Blengino</a>
+            </p>
+            <p>Built with 
+                <a href="https://astro.build/" target="_blank" rel="noopener noreferrer" class="underline">Astro</a>
+                 & 
+                <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="underline">TailwindCSS</a>
+                </p>
+        </div>
+    </div>
+</footer>

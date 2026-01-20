@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+.scrollbar-track-transparent::-webkit-scrollbar {
+    width: 0px;
+}
+
+.scrollbar-track-transparent::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+@font-face {
+    font-family: 'Germania One';
+    src: url('../assets/fonts/GermaniaOne-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cinzel Variable';
+    src: url('../assets/fonts/Cinzel-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Crimson Text';
+    src: url('../assets/fonts/CrimsonText-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Crimson Text';
+    src: url('../assets/fonts/CrimsonText-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Minecraft Body';
+    src: url('../assets/fonts/Minecraft.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --font-display: "Germania One", system-ui;
+    --font-title: "Cinzel Variable", serif;
+    --font-body: "Crimson Text", serif;
+    --font-minecraft: "Minecraft Body", monospace;
+}
+
+.hero {
+        background-image: url('../assets/bg_hero.jpg');
+        background-size: cover;
+    }
+
+@plugin 'tailwind-scrollbar';

@@ -1,0 +1,10 @@
+---
+
+const {hook} = Astro.props
+const {background} = Astro.props
+const {extraClasses} = Astro.props
+---
+
+<section id={hook} class=`min-h-[95dvh] w-full scroll-mt-16 ${background} ${extraClasses}`>
+    <slot></slot>
+</section>

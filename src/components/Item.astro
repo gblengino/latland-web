@@ -1,0 +1,9 @@
+---
+const {label} = Astro.props
+const {hook} = Astro.props
+const {class: className = ""} = Astro.props
+---
+
+<div class=`flex items-center justify-center ${className}`>
+    <a href={hook} class="font-display text-3xl">{label}</a>
+</div>

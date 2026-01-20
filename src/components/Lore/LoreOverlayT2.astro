@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets"
+import season2Logo from "./assets/latland_logo_t2.webp"
+import { Icon } from "astro-icon/components"
+---
+
+<div class="h-full flex flex-col items-center justify-start">
+    <div class="max-w-4xl text-center">
+        <Image src={season2Logo} alt="Temporada 2: Exploradores del Reino Perdido" 
+        class={"w-48 lg:w-md"}/>
+    </div>
+    <div class="flex flex-col w-full px-8 h-full">
+            <p class="font-title text-xl md:text-4xl text-center">Hora de recuperar lo perdido</p>
+            <p class="font-body italic text-lg md:text-3xl text-center mt-5 mx-6">
+                Han pasado años desde que el ducado de Orslach cayó en desgracia... sólo quedan ruinas
+                de lo que antaño fue Tar-Ba-Zim, la capital del Reino de los Enanos, hoy olvidado por
+                muchos... <br>
+                Sin embargo, el Rey convoca a sus más valientes exploradores para una nueva aventura:
+                desentrañar los más grandes misterios que aguardan en lo profundo de la Ciudadela enana
+                para intentar recuperar el esplendor de Lindarch, la capital de Orslach. <br>
+            </p>
+            <p class="font-body italic text-xl md:text-4xl text-center mt-8">
+                ¿Estás listo para una nueva aventura en LatLand?
+            </p>
+    </div>
+    <button id="close-lore-t2" class="absolute right-8 mt-8 lg:text-2xl hover:cursor-pointer">
+        <Icon name="close" />
+    </button>
+</div>
+
+<script>
+
+    const back = document.getElementById('close-lore-t2')
+
+    const panel_buttons = document.querySelectorAll('[data-panel]')
+    const panels = document.querySelectorAll('[id^="panel-"]')
+
+    panel_buttons.forEach(btn => {
+        btn.addEventListener('click', ()=>{
+            if (!(btn instanceof HTMLElement)) return
+            const panel_id = btn.dataset.panel
+            if (!panel_id) return
+            openPanel(`panel-${panel_id}`)
+        })
+    })
+
+    function openPanel(panelID) {
+        panels.forEach(p => {
+            if (p.id == panelID) {
+                p.classList.add('opacity-100')
+                p.classList.remove('opacity-0', 'pointer-events-none')
+            } else {
+                p.classList.remove('opacity-100')
+                p.classList.add('opacity-0', 'pointer-events-none')
+            }
+        })
+    }
+
+    function closeLore() {
+            const overlay = document.getElementById('overlay-t2')
+            overlay.classList.add('translate-x-full','pointer-events-none')
+            overlay.classList.remove('translate-x-0','pointer-events-auto')
+        }
+
+    back?.addEventListener('click',closeLore)
+
+
+</script>

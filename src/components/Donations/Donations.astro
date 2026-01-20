@@ -1,0 +1,52 @@
+---
+import Section from "../../layouts/Section.astro";
+
+import { Image } from "astro:assets";
+
+import Explorador from "./assets/Explorador.png"
+import Cartografo from "./assets/Cartografo.png"
+import Arquitecto from "./assets/Arquitecto.png"
+
+---
+
+<Section hook="donate">
+    <div class="w-full h-full flex flex-col items-center gap-4 px-4 py-4">
+        <h2 class="font-display text-3xl lg:text-5xl mt-4 text-center">Colabora con el proyecto</h2>
+        <p class="font-minecraft text-center text-lg lg:text-2xl">Hacete miembro colaborador del proyecto y obtené un 
+            rango especial dentro del servidor</p>
+        <div class="max-w-5xl grid lg:grid-cols-2 gap-8 mt-8">
+            <div class="rounded-2xl overflow-hidden flex flex-col items-center border-stone-700 border
+            hover:scale-105 transition-all duration-300 ease-in-out">
+                <Image src={Explorador} alt="Rango Explorador" />
+                <h6 class="font-minecraft text-2xl lg:text-4xl text-center mt-4">$2000</h6>
+                <p class="text-center text-lg lg:text-xl font-minecraft mt-2">Apoyo base al proyecto</p>
+                <ul class="text-center mt-4 px-4 text-md lg:text-lg">
+                    <li>Rol "Explorador" dentro del servidor.</li>
+                    <li>Acceso a posts con avances del desarrollo del servidor.</li>
+                    <li>Participación en encuestas para decidir aspectos del servidor.</li>
+                    <li>El apoyo se destina a costear la infraestructura y el desarrollo del servidor.</li>
+                </ul>
+                <div class="py-2 px-6 my-8 inline-flex items-center justify-center bg-cyan-800 rounded-lg 
+                hover:bg-cyan-700 hover:cursor-pointer justify-self-end">
+                    <a href="https://cafecito.app/latin235/plans" target="_blank" rel="noopener noreferrer">Donar</a>
+                </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden flex flex-col items-center border-stone-700 border
+            hover:scale-105 transition-all duration-300 ease-in-out">
+                <Image src={Cartografo} alt="Rango Explorador" />
+                <h6 class="font-minecraft text-2xl lg:text-4xl text-center mt-4">$5000</h6>
+                <p class="text-center text-lg lg:text-xl font-minecraft mt-2">Colaborador del proyecto</p>
+                <ul class="text-center mt-4 px-4 text-md lg:text-lg">
+                    <li>Todas las ventajas del rol "Explorador"</li>
+                    <li>Rol "Cartógrafo" dentro del servidor.</li>
+                    <li>Acesso al chat para dejar sugerencias sobre el armado del servidor.</li>
+                    <li>Podrás elegir el nombre de un NPC dentro del servidor.</li>
+                </ul>
+                <div class="py-2 px-6 my-8 inline-flex items-center justify-center bg-cyan-800 rounded-lg 
+                hover:bg-cyan-700 hover:cursor-pointer justify-self-end">
+                    <a href="https://cafecito.app/latin235/plans" target="_blank" rel="noopener noreferrer">Donar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</Section>

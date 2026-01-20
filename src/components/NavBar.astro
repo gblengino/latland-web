@@ -1,0 +1,86 @@
+---
+import Item from "./Item.astro"
+import { Icon } from 'astro-icon/components'
+import { Image } from "astro:assets"
+
+import Logo from "../assets/latin235_broken_logo.png"
+
+const navItems = [
+    { title: "Inicio", hook:"#"},
+    { title: "Lore", hook:"#lore"},
+    { title: "Donaciones", hook:"#donate"},
+]
+---
+
+<div id="menu" class="sticky top-0 z-40 w-full h-16 flex justify-between bg-stone-900">
+    <nav class="w-full h-16 flex justify-between p-2">
+        <section class="w-[20vw]">
+            <picture class="w-12 h-12">
+                <Image src={Logo} alt="" class="w-auto max-h-full pl-2">
+            </picture>
+        </section>
+        <section class="w-[40vw] hidden lg:flex lg:justify-end">
+            {
+                navItems.map(item => (
+                    <Item id="item" label={item.title} hook={item.hook} class="pr-5"/>
+                ))
+            }
+        </section>
+    </nav>
+    <button id="open-nav-button" type="button" class="lg:hidden pr-5" aria-label="Navigation">
+        <Icon name='menu'/>
+    </button>
+</div>
+<div id="menu-modal" class="block fixed inset-0 bg-stone-900 z-50 
+opacity-0 translate-x-full pointer-events-none transition-all duration-300 ease-out">
+    <header class="text-right">
+        <button id="close-nav-button" type="button" class="pr-5 pt-5 text-2xl" aria-label="Close navigation">
+            <Icon name='close'/>
+        </button>
+    </header>
+    <div class="flex justify-center">
+        <Icon name='logo' class={"text-7xl"} />
+    </div>
+    <div class="w-full flex flex-col items-center pt-4">
+        {
+            navItems.map(item => (
+                <Item label={item.title} hook={item.hook} class="py-2"/>
+            ))
+        }
+    </div>
+</div>
+
+<script is:inline>
+    const openNavButton = document.getElementById('open-nav-button')
+    const closeNavButton = document.getElementById('close-nav-button')
+    const modal = document.getElementById('menu-modal')
+
+    const openMenu = () => {
+        modal.classList.remove(
+        'opacity-0',
+        'translate-x-full',
+        'pointer-events-none'
+        )
+        modal.removeAttribute('inert',)
+    }
+
+    const closeMenu = () => {
+        modal.classList.add(
+        'opacity-0',
+        'translate-x-full',
+        'pointer-events-none'
+        )
+        modal.setAttribute('inert', '')
+    }
+
+    modal.addEventListener('click', (e) => {
+        const target = e.target
+        if (target.tagName === 'A') {
+            console.log('a clicked')
+            closeMenu()
+        }
+    })
+
+    openNavButton.addEventListener("click", openMenu)
+    closeNavButton.addEventListener("click", closeMenu)
+</script>

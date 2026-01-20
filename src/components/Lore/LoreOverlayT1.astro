@@ -1,0 +1,154 @@
+---
+import { Image } from "astro:assets"
+import season1Logo from "./assets/latland_logo_t1.webp"
+import elLauchaLogo from "../../assets/ellaucha.webp"
+import elSinoLogo from "../../assets/elsino.webp"
+import ga2conLogo from "../../assets/ga2con.webp"
+import { Icon } from "astro-icon/components"
+import StreamerCard from "./StreamerCard.astro"
+
+const streamers = [
+    { 
+        name: "ElLauchaaa_",
+        logo: elLauchaLogo,
+        socials: [
+            {platform: "twitch", url:"https://www.twitch.tv/ellauchaaa_"},
+            {platform: "twitter", url:"https://x.com/Lauchaatw"}
+    ] },
+    {
+        name:"Sinomegustameoy",
+        logo: elSinoLogo,
+        socials: [
+            {platform: "twitch", url:"https://www.twitch.tv/sinomegustameoy"}
+        ]
+    },
+    {
+        name: "Ga2con",
+        logo: ga2conLogo,
+        socials: [
+            {platform: "twitch", url:"https://www.twitch.tv/ga2con"},
+            {platform: "tiktok", url:"https://www.tiktok.com/@ga2conxd"}
+        ]
+    }
+]
+---
+
+
+<div class="h-full flex flex-col items-center justify-start">
+    <div class="max-w-4xl text-center">
+        <Image src={season1Logo} alt="Temporada 1: Las Profundidades de Virland" 
+        class={"w-48 lg:w-md"}/>
+    </div>
+    <p class="hidden md:block md:text-xl font-body mt-4 mx-5 text-center">
+        El Rey Alfonso III llamó a sus mejores guerreros para explorar y conquistar las 
+        duras tierras de Virland en una expedición que puso a prueba hasta a los mejores
+        exploradores.
+    </p>
+    <div class="flex flex-col md:flex-row w-full px-2 md:px-8 py-5 h-full">
+        <div id="buttons" class="w-full bg-stone-800/80 border rounded-t-2xl flex
+         md:w-3/12 md:rounded-l-2xl md:rounded-t-none md:block border-stone-700 overflow-hidden">
+            <button data-panel="1" class="w-full text-center md:text-left px-4 py-3 bg-stone-800 hover:bg-stone-700
+            text-sm md:text-2xl font-title hover:cursor-pointer focus:bg-stone-700 transition-all duration-200 ease-in-out">
+                Prólogo
+            </button>
+            <button data-panel="2" class="w-full text-center md:text-left px-4 py-3 bg-stone-800 hover:bg-stone-700
+            text-sm md:text-2xl font-title hover:cursor-pointer focus:bg-stone-700 transition-all duration-200 ease-in-out">
+                Streamers Invitados
+            </button>
+            <button data-panel="3" class="w-full text-center md:text-left px-4 py-3 bg-stone-800 hover:bg-stone-700
+            text-sm md:text-2xl font-title hover:cursor-pointer focus:bg-stone-700 transition-all duration-200 ease-in-out">
+                Información Técnica
+            </button>
+        </div>
+        <div id="info" class="w-full h-full relative bg-stone-800/70 border rounded-b-2xl border-stone-700
+        md:w-9/12 md:rounded-r-2xl md:rounded-bl-none">
+            <div id="panel-1" class="absolute w-full h-full px-4 py-3 overflow-y-scroll
+            scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar
+            scrollbar-thumb-stone-700 scrollbar-track-transparent
+            opacity-100 transition-all duration-500 ease-in-out">
+                <p class="font-title text-xl md:text-4xl text-center">La Llamada del Rey</p>
+                <p class="font-body italic text-md md:text-2xl text-justify mt-2 mx-6">
+                    Hace unos pocos meses nuestros exploradores abrieron un pequeño puesto 
+                    de avanzada al noroeste del Ducado de Orslach, aún no lo hemos bautizado, pero los primeros 
+                    soldados en llegar comenzaron a apodarlo “Fuerte Nevado” por encontrarse en un valle montañoso 
+                    rodeado por nieve, justamente. <br>
+                    Aún no conocemos nada sobre los peligros que podemos encontrar, te hemos elegido entre tantos 
+                    nobles caballeros para guiar a tus tropas hacia lo desconocido, apenas llegues a “Fuerte Nevado” 
+                    habla con Harold, quien está a cargo del fuerte. Él te otorgará un Permiso de Tierras Real con 
+                    el cual podrás reclamar una zona de Virland a tu elección para construir allí tu Ciudadela, 
+                    junto a tus soldados y todo aquel quien ose a conquistar estas inexploradas y extrañas tierras. <br>
+                    Te recomiendo visitar “Fuerte Nevado” seguido, queremos consolidarlo como un Puesto de Avanzada
+                    así que siempre estaremos enviando nuevas gentes que necesitarán tu ayuda. <br>
+                    Ten cuidado también en tus viajes, quizás te cruces con algunos lugareños, nunca sabemos 
+                    qué puede suceder... 
+                </p>
+                <p class="font-body italic text-md md:text-2xl text-right mx-6 mt-4"> 
+                    Eduardo, Guardián de la Puerta y mensajero del Reino de Baren
+                </p>
+            </div>
+            <div id="panel-2" class="absolute w-full h-full px-4 py-3 opacity-0 transition-all duration-500 ease-in-out pointer-events-none">
+                <div class="w-full h-auto lg:h-2/12">
+                    <p class="font-title text-xl md:text-4xl text-center">Streamers Invitados</p>
+                    <p class="font-body text-md md:text-2xl text-center">Participaron del servidor con el rango de Streamer</p>
+                </div>
+                <div class="w-full h-10/12 flex flex-wrap justify-center lg:gap-8 items-center px-8 lg:py-4">
+                    {
+                        streamers.map(streamer => (
+                            <StreamerCard nameStreamer={streamer.name} socials={streamer.socials} logoStreamer={streamer.logo} />
+                        ))
+                    }
+                </div>
+            </div>
+            <div id="panel-3" class="absolute w-full h-full px-4 py-3 opacity-0 transition-all duration-500 ease-in-out pointer-events-none">
+                <p class="text-center font-title text-2xl md:text-4xl">Información Técnica</p>
+                <ul class="text-center font-display mt-5 text-xl md:text-3xl">
+                    <li>Versión: Minecraft 1.21</li>
+                    <li>Software: PaperMC</li>
+                    <li>Host: Teramont</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button id="close-lore-t1" class="absolute right-8 mt-8 lg:text-2xl hover:cursor-pointer">
+        <Icon name="close" />
+    </button>
+</div>
+
+<script>
+
+    const back = document.getElementById('close-lore-t1')
+
+    const panel_buttons = document.querySelectorAll('[data-panel]')
+    const panels = document.querySelectorAll('[id^="panel-"]')
+
+    panel_buttons.forEach(btn => {
+        btn.addEventListener('click', ()=>{
+            if (!(btn instanceof HTMLElement)) return
+            const panel_id = btn.dataset.panel
+            if (!panel_id) return
+            openPanel(`panel-${panel_id}`)
+        })
+    })
+
+    function openPanel(panelID) {
+        panels.forEach(p => {
+            if (p.id == panelID) {
+                p.classList.add('opacity-100')
+                p.classList.remove('opacity-0', 'pointer-events-none')
+            } else {
+                p.classList.remove('opacity-100')
+                p.classList.add('opacity-0', 'pointer-events-none')
+            }
+        })
+    }
+
+    function closeLore() {
+            const overlay = document.getElementById('overlay-t1')
+            overlay.classList.add('-translate-x-full','pointer-events-none')
+            overlay.classList.remove('translate-x-0','pointer-events-auto')
+        }
+
+    back?.addEventListener('click',closeLore)
+
+
+</script>
