@@ -1,0 +1,24 @@
+- id: ellauchaaa
+  name: ElLauchaaa_
+  logo: ./avatars/ellaucha.webp
+  media:
+    - name: twitch
+      url: https://www.twitch.tv/ellauchaaa_
+    - name: x
+      url: https://x.com/Lauchaatw
+
+- id: sinomegustameoy
+  name: sinomegustameoy
+  logo: ./avatars/elsino.webp
+  media:
+    - name: twitch
+      url: https://www.twitch.tv/sinomegustameoy
+
+- id: ga2con
+  name: Ga2con
+  logo: ./avatars/ga2con.webp
+  media:
+    - name: twitch
+      url: https://www.twitch.tv/ga2con
+    - name: tiktok
+      url: https://www.tiktok.com/@ga2conxd

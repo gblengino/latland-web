@@ -1,0 +1,9 @@
+---
+
+const {hook} = Astro.props
+const {extraClasses} = Astro.props
+---
+
+<div id={hook} class=`w-full max-w-7xl mx-auto px-6 lg:px-8 scroll-mt-16`>
+    <slot></slot>
+</div>

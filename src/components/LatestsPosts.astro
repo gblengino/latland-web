@@ -1,0 +1,29 @@
+---
+import Container from "../layouts/Container.astro"
+import { getSortedPosts } from "../lib/posts";
+import PostCard from "./PostCard.astro";
+
+const posts = await getSortedPosts()
+const latestPosts = posts.slice(0, 3)
+---
+
+<section class="w-full mt-20 lg:mt-4">
+    <Container>
+        <div class="flex w-full justify-center md:justify-between">
+            <h3 class="text-base font-monospace uppercase text-latland-accent tracking-wide">Cronicas del Reino</h3>
+            <a href="/blog" class="font-body hidden md:block text-latland-text text-2xl italic">Ver más</a>
+        </div>
+        <h3 class="font-body text-4xl my-4 text-center md:text-left">Últimas noticias</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {latestPosts.map((post) => (
+                <PostCard post={post}/>
+            ))}
+        </div>
+        <div class="md:hidden w-full flex justify-center items-center my-6">
+            <a href="/blog" class="px-4 py-2 bg-latland-card rounded-lg text-latland-text text-2xl font-serif text-center
+            border border-latland-border shadow-lg shadow-latland-card/50">
+                Ver más
+            </a>
+        </div>
+    </Container>
+</section>

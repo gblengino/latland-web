@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+const { post } = Astro.props
+---
+
+<a href={`/blog/${post.id}`} class="w-full bg-latland-card border-latland-border border rounded-xl
+    hover:scale-105 transition-all duration-200 hover:border-latland-accent-dark">
+    <div class="aspect-video w-full">
+        {post.data.heroImage ? (
+            <Image 
+                src={post.data.heroImage}
+                alt={post.data.title}
+                width={800}
+                height={450}
+                format="webp"
+                quality={80}
+                loading="eager"
+                class="rounded-t-xl object-cover w-full h-full"
+            /> ):( 
+            <div class="w-full h-full bg-linear-to-br from-latland-accent-dark to-latland-bg rounded-t-xl" />
+        )}
+    </div>
+    <div class="p-4">
+        <p class="font-monospace text-xs text-latland-text-muted">
+            {post.data.pubDate.toLocaleDateString('es-AR', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase()}
+        </p>
+        <h3 class="font-body text-latland-text text-2xl">{post.data.title}</h3>
+        <p class="font-inter text-latland-text-secondary text-sm line-clamp-2">{post.data.description}</p>
+    </div>
+</a>

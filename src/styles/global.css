@@ -13,19 +13,27 @@ html {
 }
 
 @font-face {
-    font-family: 'Germania One';
-    src: url('../assets/fonts/GermaniaOne-Regular.woff2') format('woff2');
+    font-family: 'Cinzel';
+    src: url('../assets/fonts/Cinzel-VariableFont_wght.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Cinzel Variable';
-    src: url('../assets/fonts/Cinzel-VariableFont_wght.woff2') format('woff2');
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: optional;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('../assets/fonts/JetBrainsMono.woff2') format('woff2');
     font-weight: 100 900;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {
@@ -33,7 +41,7 @@ html {
     src: url('../assets/fonts/CrimsonText-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {
@@ -53,15 +61,79 @@ html {
 }
 
 @theme {
-    --font-display: "Germania One", system-ui;
-    --font-title: "Cinzel Variable", serif;
+    --font-title: "Cinzel", serif;
+    --font-inter: "Inter", system-ui, sans-serif;
+    --font-monospace: "JetBrains Mono", monospace;
     --font-body: "Crimson Text", serif;
     --font-minecraft: "Minecraft Body", monospace;
+    --shadow-glow: 0 0 30px rgba(34, 195, 224, 0.2);
+    --color-latland-bg: #10161A;
+    --color-latland-card: #161F23;
+    --color-latland-border: #223035;
+    --color-latland-accent: #22C3E0;
+    --color-latland-accent-dark: #0B6E82;
+    --color-latland-accent-text: #3FB8D6;
+    --color-latland-online: #3FD68C;
+    --color-latland-text: #E4EEF0;
+    --color-latland-text-secondary: #8FA3A8;
+    --color-latland-text-muted: #5A6C70;
 }
 
-.hero {
-        background-image: url('../assets/bg_hero.jpg');
-        background-size: cover;
-    }
-
 @plugin 'tailwind-scrollbar';
+
+/* ESTILOS GENERALES PARA .md DE CONTENT COLLECTIONS */
+
+.markdown-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
+.markdown-content h2 {
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.markdown-content a {
+  text-decoration: underline;
+}
+
+.markdown-content a:hover {
+  color: var(--color-latland-accent);
+  transition-duration: 100ms; 
+}
+
+.markdown-content blockquote {
+  border-left: 2px solid;
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+/* h5 utilizado para subtitulos */
+.markdown-content h5 {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  color: var(--color-latland-text, #fff);
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+/* h6 utilizado como tag */
+.markdown-content h6 {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-latland-accent, #06b6d4);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}

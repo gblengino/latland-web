@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content"
+
+import Container from "../layouts/Container.astro"
+import StreamerCard from "./StreamerCard.astro"
+
+import ElLauchaLogo from "../assets/ellaucha.webp"
+import SinoLogo from "../assets/elsino.webp"
+import Ga2Logo from "../assets/ga2con.webp"
+
+const streamers = await getCollection('streamerList')
+
+---
+
+<section class="w-full my-20">
+    <Container>
+        <p class="text-base font-monospace text-latland-accent font-medium uppercase text-center md:text-left">
+            Se unieron a la aventura
+        </p>
+        <h3 class="font-serif text-3xl text-latland-text text-center md:text-left">Streamers invitados</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center gap-5 mt-6 px-6 md:p-0">
+            {streamers.map((streamer) => (
+                <StreamerCard streamer={streamer}/>
+            ))}
+        </div>
+    </Container>
+</section>

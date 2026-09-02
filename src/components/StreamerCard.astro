@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  streamer: CollectionEntry<'streamerList'>;
+}
+
+const { streamer } = Astro.props
+const { name, logo, media } = streamer.data
+---
+
+<article class="md:aspect-square bg-latland-card border-latland-border border rounded-xl flex md:flex-col gap-2 px-4 py-4 md:py-2
+    hover:scale-105 transition-all duration-200 hover:border-latland-accent-dark justify-start md:justify-center items-center">
+    <div class="flex justify-center items-center">
+        <Image 
+            src={logo}
+            alt={name}
+            width={64}
+            height={64}
+            class="rounded-full border border-latland-border shadow shadow-latland-dark"
+        />
+    </div>
+    <div class="flex-1 md:flex-initial flex flex-col items-start md:items-center gap-2 pl-4 md:pl-0">
+        <h4 class="font-medium text-xl md:text-3xl text-latland-text">{name}</h4>
+        <div class="flex gap-2">
+            {media.map((media) => (
+                <a href={media.url} target="_blank" class="p-2.5 bg-latland-border rounded-lg 
+                hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors">
+                    <Icon name={`simple-icons:${media.name}`} class="size-5"/>
+                </a>
+            ))}
+        </div>
+    </div>
+</article>

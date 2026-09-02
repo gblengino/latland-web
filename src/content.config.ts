@@ -10,13 +10,27 @@ import { z } from 'astro/zod';
 // 4. Define a `loader` and `schema` for each collection
 const blog = defineCollection({
   loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
-    content: z.string(),
+    description: z.string(),
     pubDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
+    heroImage: image().optional(),
+    tags: z.array(z.string()).default([]),
   }),
 });
 
+const streamerList = defineCollection({
+  loader: file('./src/content/streamers/streamers.yaml'),
+  schema: ({ image }) => z.object({
+    id: z.string(),
+    name: z.string(),
+    logo: image(),
+    media: z.array(z.object({
+      name: z.string(),
+      url: z.string().url()
+    }))
+  })
+})
+
 // 5. Export a single `collections` object to register your collection(s)
-export const collections = { blog };
+export const collections = { blog, streamerList };
