@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../layouts/Container.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout 
+  title="Archivos del Reino | LatLand" 
+  description="Las crónicas y relatos de Fuerte Nevado se encuentran en proceso de transcripción."
+>
+  <main class="w-full min-h-[75vh] flex items-center justify-center relative overflow-hidden py-12">
+    <!-- Resplandor centrado detrás del contenido -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-120 h-120 bg-latland-accent/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <Container hook="#">
+      <div class="flex flex-col items-center text-center max-w-xl mx-auto px-4">
+        
+        <!-- Badge de estado -->
+        <span class="inline-flex items-center gap-2 font-mono text-latland-accent text-xs md:text-sm uppercase tracking-widest px-3 py-1 bg-latland-card border border-latland-border rounded-full mb-6">
+          <span class="size-2 rounded-full bg-latland-accent animate-pulse"></span>
+          Archivos sellados · En redacción
+        </span>
+
+        <!-- Título principal -->
+        <h1 class="font-body text-latland-text text-4xl md:text-5xl mb-4">
+          Las crónicas aún se están escribiendo
+        </h1>
+
+        <!-- Mensaje de lore WIP -->
+        <p class="font-sans text-latland-text-muted text-base md:text-lg mb-8 leading-relaxed max-w-md">
+          Los escribas del reino continúan recopilando los sucesos, expediciones y misterios de Fuerte Nevado. Los pergaminos se abrirán muy pronto.
+        </p>
+
+        <!-- Botones de navegación -->
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <a 
+            href="/blog" 
+            class="w-full sm:w-auto bg-latland-accent text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-latland-accent-dark border border-latland-accent transition-colors inline-flex items-center justify-center gap-2"
+          >
+            <Icon name="mdi:newspaper-variant-outline" class="size-5" />
+            Leer las últimas noticias
+          </a>
+          
+          <a 
+            href="/" 
+            class="w-full sm:w-auto px-6 py-3 rounded-lg font-medium text-latland-text hover:text-latland-accent border border-latland-border bg-latland-card/50 transition-colors inline-flex items-center justify-center gap-2"
+          >
+            Volver al inicio
+          </a>
+        </div>
+
+      </div>
+    </Container>
+  </main>
+</Layout>

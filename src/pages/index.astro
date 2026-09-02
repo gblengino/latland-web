@@ -1,22 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro'
 
-import Header from '../components/Header.astro'
-import NavBar from '../components/NavBar.astro'
 import Hero from '../components/Hero.astro'
-import Lore from '../components/Lore/Lore.astro'
-import Donations from '../components/Donations/Donations.astro'
-import Footer from '../components/Footer.astro'
+import LatestsPosts from '../components/LatestsPosts.astro'
+import Streamers from '../components/Streamers.astro';
 
 ---
 
 <Layout title='LatLand'>
-	<Header />
-	<NavBar />
 	<main>
 		<Hero />
-		<Lore />
-		<Donations />
+		<LatestsPosts />
+		<Streamers />
 	</main>
-	<Footer />
 </Layout>

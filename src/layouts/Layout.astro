@@ -2,25 +2,49 @@
 import '../styles/global.css'
 import { Analytics } from '@vercel/analytics/react';
 
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+
+import titleFont from '../assets/fonts/Cinzel-VariableFont_wght.woff2'
+
 interface Props {
     title?: string;
+	description?: string;
 }
 
-const { title = "LatLand" } = Astro.props;
+const { 
+	title = "LatLand", 
+	description = "Un servidor Survival RPG de Minecraft donde el reino crece cada temporada." } = Astro.props;
 
 ---
 
 <!doctype html>
 <html lang="es">
     <head>
-		<meta charset="utf-8" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
-		<meta name="viewport" content="width=device-width" />
+		<link
+			rel="preload"
+			href={titleFont}
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description}/>
+
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+
 		<title>{title}</title>
 		<Analytics/>
 	</head>
-    <body class="bg-stone-900 text-stone-200">
+    <body class="bg-latland-bg text-latland-text">
+		<Header />
         <slot />
+		<Footer />
     </body>
 </html>

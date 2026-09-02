@@ -1,43 +1,55 @@
 ---
-import Section from "../layouts/Section.astro";
-
-const progress = '20%'
+import Container from "../layouts/Container.astro"
+import Progress from "./Progress.astro";
+import { Icon } from "astro-icon/components";
 
 ---
 
-<Section hook="#" background="hero" extraClasses="relative">
-    <div class="absolute inset-0 bg-black/70">
-        <div class="w-full h-full flex flex-col items-center opacity-100 text-center">
-            <h2 class="font-minecraft text-3xl lg:text-5xl pt-18">¿Preparado para la Aventura?</h2>
-            <p class="font-minecraft text-xl lg:text-2xl mt-4">LatLand es un servidor de Minecraft SMP con componentes RPG</p>
-            <h2 class="font-display text-3xl lg:text-5xl mt-20">Temporada 2: Exploradores del Reino Perdido</h2>
-            <p class="font-display text-xl lg:text-3xl mt-4 animate-pulse">Progreso del Servidor</p>
-            <div class="flex flex-col mt-4 w-[90%] lg:w-[70%]">
-                <div class="flex justify-between text-sm">
-                    <span>Construcción del Spawn</span>
-                    <span>Sistema de Clases</span>
-                    <span>NPCs y Misiones</span>
-                    <span>Host y conexiones</span>
-                    <span>Pulido final</span>
-                </div>
-                <div class="h-6 w-full mt-2 bg-gray-800 rounded-full p-0.5 overflow-hidden shadow-[0_0_15px_rgba(0,209,255,0.4)]">
-                    <div class="h-full bg-linear-to-r from-[#00A3C4] to-[#00D1FF] rounded-full transition-all duration-500 ease-in-out
-                    flex justify-end"
-                    style=`width: ${progress}`>
-                        <span class="text-sm mx-2">{progress}</span>
-                    </div>
-                </div>
+<section class="w-full relative overflow-hidden">
+    <Container hook="#">
+        <div class="w-full flex relative z-10">
+            <div class="absolute md:hidden -right-10 bottom-0 top-16 md:top-0 md:relative md:right-0 py-6 pointer-events-none select-none z-0">
+                <img 
+                    src="/img/latin_idle.webp" 
+                    alt=""
+                    class="h-120 md:h-auto md:w-full md:max-w-xs object-contain opacity-30 md:opacity-100 drop-shadow-[0_0_35px_rgba(6,182,212,0.25)] transition-opacity ml-auto"
+                >
             </div>
-            <div class="mt-16">
-                <a href="#donate" class="bg-stone-700 hover:bg-stone-600 text-amber-50 font-bold py-2 px-4 
-                rounded inline-flex items-center hover:cursor-pointer">
-                    <span>Apoya el Proyecto</span>
-                </a>
-                <a href="#lore" class="bg-cyan-950 hover:bg-cyan-900 text-amber-50 font-bold py-2 px-4 
-                rounded inline-flex items-center hover:cursor-pointer">
-                    <span>Saber más</span>
-                </a>
+            <div class="w-full max-w-md lg:max-w-2xl m-auto flex flex-col justify-center md:justify-start mt-6 mb-10 md:mb-0 md:mt-20 relative z-10">
+                <p class="font-monospace text-latland-accent uppercase text-base text-center md:text-left">
+                    Temporada 1.5 | El Vástago del Norte
+                </p>
+                <h2 class="mt-4 font-body text-latland-text text-4xl lg:text-5xl text-center md:text-left">
+                    Vuelve a Fuerte Nevado para reclamar lo que es nuestro por derecho
+                </h2>
+                <p class="mt-2 font-normal text-latland-text-muted text-center md:text-left">
+                    El nuevo Rey convoca nuevos exploradores para recuperar lo perdido. <br>
+                    Minecraft 26.2
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 md:gap-2 mt-4 items-center max-w-xs self-center md:max-w-none md:self-auto">
+                    <button class="bg-latland-card px-6 py-2 inline-flex gap-2 items-center justify-center text-sm lg:text-lg border-latland-border
+                    border-[0.5px] rounded-lg hover:bg-latland-card/80 hover:border-latland-accent-dark hover:cursor-pointer
+                    transition-colors duration-100 w-full md:w-fit">
+                        <Icon name="mdi:minecraft" size={16} class={"text-latland-online"}/>
+                        <p class="font-mono text-latland-accent-text">IP: Próximamente</p>
+                        <Icon name="mdi:content-copy" size={16} class={"text-latland-text-secondary hidden"}/>
+                    </button>
+                    <a href="https://cafecito.app/latin235" class="bg-latland-accent text-gray-900 px-6 py-2 flex items-center w-full md:w-fit
+                    rounded-lg hover:bg-latland-accent-dark border-latland-accent border-[0.5px] transition-colors hover:text-latland-text
+                    justify-center">
+                        Apoya el proyecto
+                    </a>
+                </div>
+                
+            </div>
+            <!-- Render Skin -->
+            <div class="hidden md:relative md:right-0 md:w-full md:flex justify-end py-6 pointer-events-none select-none z-0">
+                <img src="/img/latin_idle.webp" alt=""
+                class="h-90 md:h-auto md:w-full md:max-w-xs object-contain opacity-35 md:opacity-100 drop-shadow-[0_0_35px_rgba(6,182,212,0.25)] transition-opacity">
             </div>
         </div>
-    </div>
-</Section>
+        <div class="flex lg:my-12 z-10 py-6">
+            <Progress/>
+        </div>
+    </Container>
+</section>

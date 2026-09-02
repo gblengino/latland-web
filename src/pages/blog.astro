@@ -1,0 +1,24 @@
+---
+import PostCard from "../components/PostCard.astro";
+import BlogLayout from "../layouts/BlogLayout.astro";
+import Container from "../layouts/Container.astro";
+import { getSortedPosts } from "../lib/posts";
+
+const posts = await getSortedPosts();
+---
+
+<BlogLayout title="Blog - LatLand">
+    <section class="w-full min-h-[75vh] my-6">
+        <h1 class="font-serif text-4xl font-medium text-latland-text mb-2 text-center md:text-left">
+            Últimas noticias
+        </h1>
+        <p class="text-xl text-latland-text-secondary mb-10 text-center md:text-left">
+            Todas las novedades de LatLand
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {posts.map((post) => (
+                <PostCard post={post}/>
+            ))}
+        </div>
+    </section>
+</BlogLayout>

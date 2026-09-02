@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../layouts/Container.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout title="404: Fuera de los límites | LatLand" description="Página no encontrada en Fuerte Nevado.">
+  <main class="w-full min-h-[75vh] flex items-center justify-center relative overflow-hidden py-12">
+    <!-- Resplandor sutil de fondo para dar atmósfera -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[28rem] h-[28rem] bg-latland-accent/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <Container hook="#">
+      <div class="flex flex-col items-center text-center max-w-xl mx-auto px-4">
+        
+        <!-- Badge / Eyebrow -->
+        <span class="font-mono text-latland-accent text-xs md:text-sm uppercase tracking-widest px-3 py-1 
+        bg-latland-card border border-latland-border rounded-full mb-6">
+          Error 404 · Desconexión
+        </span>
+
+        <!-- Título principal -->
+        <h1 class="font-body text-latland-text text-4xl md:text-6xl mb-4">
+          La ventisca borró este sendero
+        </h1>
+
+        <!-- Mensaje de inmersión -->
+        <p class="font-sans text-latland-text-muted text-base md:text-lg mb-8 leading-relaxed max-w-md">
+          Te has aventurado más allá de las murallas seguras de Fuerte Nevado. No hay estructuras ni crónicas en estas coordenadas.
+        </p>
+
+        <!-- Botón de retorno al spawn -->
+        <a 
+          href="/" 
+          class="bg-latland-accent text-gray-900 px-6 py-3 rounded-lg font-medium 
+          hover:bg-latland-accent-dark border border-latland-accent transition-colors inline-flex items-center gap-2"
+        >
+          <Icon name="mdi:compass-outline" class="size-5" />
+          Reaparecer en el Spawn
+        </a>
+
+      </div>
+    </Container>
+  </main>
+</Layout>

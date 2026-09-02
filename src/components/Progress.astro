@@ -1,0 +1,54 @@
+---
+import { Icon } from "astro-icon/components";
+
+const progress = 45
+const features = [
+    {
+        "name":"Spawn",
+        "completed": true
+    }, 
+    {
+        "name":"Sistema de Reputación",
+        "completed": true
+    },
+    {
+        "name":"NPCs",
+        "completed":false
+    },
+    { 
+        "name":"Sistema de Misiones",
+        "completed":false
+    },
+    { 
+        "name":"Pulido final",
+        "completed":false
+    }
+    ]
+---
+
+<div class="bg-latland-card shadow-glow rounded-3xl w-full p-8 flex flex-col">
+        <div class="flex justify-between items-baseline mb-2">
+            <h4 class="uppercase text-latland-text-secondary font-monospace text-xs md:text-sm tracking-widest">
+                Progreso del servidor
+            </h4>
+            <p class="text-latland-accent text-sm md:text-base font-mono">{progress}%</p>
+        </div>
+        <div class="w-full h-1.5 md:h-2 rounded-full bg-latland-bg">
+            <div 
+            class='h-full rounded-full bg-linear-to-r from-latland-accent to bg-latland-accent-dark shadow-glow'
+            style={`width: ${progress}%`}></div>
+        </div>
+        <div class="w-full flex flex-col md:flex-row justify-between mt-4">
+            {features.map((feature) => (
+                <div class="px-4 py-0 md:py-4 flex md:flex-col items-center justify-start md:justify-center gap-2">
+                    <span
+                        class={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full ${
+                        feature.completed ? "bg-latland-accent shadow-glow" : "bg-latland-border"}`}></span>
+                    <span class="text-md text-latland-text-secondary text-center">
+                        {feature.name}
+                    </span>
+                </div>
+            ))
+            }
+        </div>
+</div>

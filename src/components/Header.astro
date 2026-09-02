@@ -1,9 +1,116 @@
 ---
 import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
 
-import Logo from "../assets/latland_logo.png"
+import Container from "../layouts/Container.astro"
+import Item from "../components/Item.astro"
+import Logo from "../assets/latin235_broken_logo.png"
+import NavBar from '../components/NavBar.astro'
+
+const navItems = [
+    { title: "Inicio", href:"/"},
+    { title: "Blog", href:"/blog"},
+    { title: "Lore", href:"/lore"},
+]
+
 ---
 
-<header class="w-full h-[15vh] pt-2 pb-1 flex flex-col justify-center items-center bg-stone-900">
-    <Image src={Logo} alt="LatLand" class="w-[80vw] max-w-125 h-auto object-contain drop-shadow-[0_0_25px_rgba(251,191,36,0.3)]"/>
+<header id="navbar" class="w-full flex justify-center items-center bg-latland-bg/80 backdrop-blur-md pt-2 sticky top-0 z-50">
+    <Container>
+        <section class="w-full h-full flex items-center">
+            <article class="w-full flex items-center gap-3">
+                <picture class="w-10">
+                    <Image src={Logo} alt="" class="w-auto max-h-full pl-2">
+                </picture>
+                <h1 class="text-latland-text text-4xl font-title flex items-center uppercase">LatLand</h1>
+            </article>
+            <NavBar navItems={navItems}/>
+        </section>
+    </Container>
 </header>
+
+
+<header id="menu-modal" class="flex flex-col fixed inset-0 backdrop-blur-2xl bg-latland-bg/80 z-50 lg:hidden
+opacity-0 translate-x-full pointer-events-none transition-all duration-300 ease-out">
+    <div class="text-right text-latland-text">
+        <button id="close-nav-button" type="button" class="pr-5 pt-5 text-2xl" aria-label="Close navigation">
+            <Icon name='mdi:close' class="size-12"/>
+        </button>
+    </div>
+    <div class="flex justify-center items-center gap-4">
+        <Icon name='logo' class={"text-7xl"} />
+        <h1 class="font-title text-5xl">LatLand</h1>
+    </div>
+    <div class="w-full max-w-xs flex flex-col items-start py-4 pl-12">
+        {
+            navItems.map(item => (
+                <Item label={item.title} href={item.href} class="py-2"/>
+            ))
+        }
+    </div>
+    <div class="w-full flex items-center justify-center my-4">
+        <a href="https://cafecito.app/latin235" class="bg-latland-accent text-gray-900 px-6 py-2 flex items-center w-full max-w-64
+        rounded-lg hover:bg-latland-accent-dark border-latland-accent border-[0.5px] transition-colors hover:text-latland-text
+        justify-center">
+            Apoya el proyecto
+        </a>
+    </div>
+    <div class="mt-auto mb-8 self-center">
+        <div class="flex gap-4 justify-center md:justify-start items-start">
+            <a href="" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:discord" class:list={"size-8"}></Icon></a>
+            <a href="" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:twitch" class:list={"size-8"}></Icon></a>
+            <a href="" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:youtube" class:list={"size-8"}></Icon></a>
+            <a href="" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:instagram" class:list={"size-8"}></Icon></a>
+            <a href="" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:tiktok" class:list={"size-8"}></Icon></a>
+        </div>
+        <div class="mt-2">
+            <p class="text-sm text-latland-text-muted">LatLand©2026. Un proyecto de Latin235</p>
+        </div>
+    </div>
+</header>
+<!-- MENU MODAL -->
+<script is:inline>
+    const openNavButton = document.getElementById('open-nav-button')
+    const closeNavButton = document.getElementById('close-nav-button')
+    const modal = document.getElementById('menu-modal')
+
+    const openMenu = () => {
+        modal.classList.remove(
+        'opacity-0',
+        'translate-x-full',
+        'pointer-events-none'
+        )
+        modal.removeAttribute('inert',)
+    }
+
+    const closeMenu = () => {
+        modal.classList.add(
+        'opacity-0',
+        'translate-x-full',
+        'pointer-events-none'
+        )
+        modal.setAttribute('inert', '')
+    }
+
+    modal.addEventListener('click', (e) => {
+        const target = e.target
+        if (target.tagName === 'A') {
+            console.log('a clicked')
+            closeMenu()
+        }
+    })
+
+    openNavButton.addEventListener("click", openMenu)
+    closeNavButton.addEventListener("click", closeMenu)
+</script>
+<!-- BLUR AL SCROLLEAR -->
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      nav?.classList.add('border-b', 'border-latland-border/50');
+    } else {
+      nav?.classList.remove('border-b', 'border-latland-border/50');
+    }
+  });
+</script>

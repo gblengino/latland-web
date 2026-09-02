@@ -1,51 +1,61 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import Container from "../layouts/Container.astro"
 import Logo from "../assets/latland_logo.png"
 import LatinLogo from "../assets/latin235_broken_logo.png"
 ---
 
-<footer class="w-full min-h-[20vh] bg-stone-800 border-t px-4 py-4 border-stone-900">
-    <div class="h-8/12 w-full flex flex-col items-center lg:flex-row lg:justify-between">
-        <div class="w-[30vh]">
-            <Image src={Logo} alt="LatLand" class:list={"object-cover"}/>
-        </div>
-        <div class="flex flex-col gap-2 px-4 py-4">
-            <div class="flex flex-col items-center lg:flex-row">
-                <picture class="w-12 h-12">
-                <Image src={LatinLogo} alt="Latin235" class="w-auto max-h-full object-cover"/>
-                </picture>
-                <p class="font-display text-3xl mt-4 lg:mt-0 text-center content-center">Proyecto creado por Latin235</p>
+<footer class="w-full bg-latland-bg">
+    <Container>
+        <div class="h-px w-full my-2 md:my-8 bg-linear-to-r from-transparent via-latland-accent-dark/40 to-transparent"></div>
+        <div class="w-full min-h-[15vh] py-2 md:py-6 grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-0">
+            <div class="text-center md:text-left col-span-2 lg:col-span-1">
+                <div class="flex items-center w-full justify-center md:justify-start lg:-m-4">
+                    <Image src={Logo} alt={"LatLand"} class:list={"w-72"}></Image>
+                </div>
+                <p class="font-inter my-2 md:my-4 md:mr-4 text-center md:text-left text-latland-text-secondary">
+                    Temporada 1.5: El Vástago del Norte. Una experiencia survival+RPG en Minecraft 26.2</p>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-latland-card border
+                border-latland-border text-xs md:text-sm text-latland-text-muted">
+                    <span class="w-2 h-2 rounded-full bg-latland-online animate-pulse"></span>
+                    <span>En Desarrollo · MC 26.2</span>
+                </div>
             </div>
-            <div class="flex justify-center gap-4 mt-4 lg:mt-0">
-                <a href="https://www.twitch.tv/latin235" target="_blank" rel="noopener noreferrer">
-                    <Icon name="twitch" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
-                </a>
-                <a href="https://www.instagram.com/latin235_" target="_blank" rel="noopener noreferrer">
-                    <Icon name="instagram" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
-                </a>
-                <a href="https://www.x.com/latin235" target="_blank" rel="noopener noreferrer">
-                    <Icon name="twitter" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
-                </a>
-                <a href="https://www.tiktok.com/latin235" target="_blank" rel="noopener noreferrer">
-                    <Icon name="tiktok" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
-                </a>
-                <a href="https://www.twitch.tv/latin235" target="_blank" rel="noopener noreferrer">
-                    <Icon name="youtube" class="text-3xl hover:text-cyan-600 transition-colors duration-300"/>
-                </a>
+            <div>
+                <h3 class="text-xl md:text-2xl font-title uppercase tracking-wider text-latland-text mb-2">
+                    Exploración
+                </h3>
+                <ul class="flex flex-col font-inter text-xs md:text-sm text-latland-text-secondary">
+                    <li><a href="/" class="py-1.5 hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow hover:translate-x-1 transition-all duration-200 inline-block">Inicio</a></li>
+                    <li><a href="/guia" class="py-1.5 hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow hover:translate-x-1 transition-all duration-200 inline-block">Guía del Servidor</a></li>
+                    <li><a href="/mapa" class="py-1.5 hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow hover:translate-x-1 transition-all duration-200 inline-block">Mapa Interactivo</a></li>
+                    <li><a href="/lore" class="py-1.5 hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow hover:translate-x-1 transition-all duration-200 inline-block">Lore & Crónicas</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl md:text-2xl font-title uppercase tracking-wider text-latland-text mb-2">El Reino</h3>
+                <ul class="flex flex-col font-inter text-xs md:text-sm text-latland-text-secondary ">
+                    <li><a href="https://discord.gg/S9hP4PZSSb" target="_blank" class="py-1.5 hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow hover:translate-x-1 transition-all duration-200 inline-block">Discord Oficial</a></li>
+                    <li><a href="/blog" class="py-1.5 hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow hover:translate-x-1 transition-all duration-200 inline-block">Blog de Actualizaciones</a></li>
+                    <li><a href="/reglas" class="py-1.5 hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow hover:translate-x-1 transition-all duration-200 inline-block">Reglas del Servidor</a></li>
+                    <li><a href="/reportes" class="py-1.5 hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow hover:translate-x-1 transition-all duration-200 inline-block">Reportes / Ticket de Ayuda</a></li>
+                    <li><a href="https://forms.gle/FApHDHj91tn3WvXLA" target="_blank" class="py-1.5 hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow hover:translate-x-1 transition-all duration-200 inline-block">Aplicar al Rango Streamer</a></li>
+                </ul>
             </div>
         </div>
-    </div>
-    <div class="h-4/12 w-full">
-        <div class="flex flex-col items-center my-6 lg:my-0">
-            <p>Handcrafted by 
-                <a href="https://github.com/gblengino" target="_blank" rel="noopener noreferrer" class="underline">Giuliano Blengino</a>
-            </p>
-            <p>Built with 
-                <a href="https://astro.build/" target="_blank" rel="noopener noreferrer" class="underline">Astro</a>
-                 & 
-                <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="underline">TailwindCSS</a>
-                </p>
+        <div class="flex flex-col-reverse md:flex-row justify-center md:justify-between items-center md:items-start 
+        pt-4 pb-4 md:pb-12 border-t border-latland-border/50 gap-6">
+            <div class="text-sm text-latland-text-muted">
+                <p>© 2026 LatLand. No afiliado con Mojang ni Microsoft.</p>
+            </div>
+            <div class="flex gap-4 justify-start items-start">
+                <a href="" target="_blank" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:discord" class:list={"size-8"}></Icon></a>
+                <a href="" target="_blank" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:twitch" class:list={"size-8"}></Icon></a>
+                <a href="" target="_blank" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:youtube" class:list={"size-8"}></Icon></a>
+                <a href="" target="_blank" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:instagram" class:list={"size-8"}></Icon></a>
+                <a href="" target="_blank" class="text-latland-text-muted hover:text-latland-accent hover:drop-shadow-latland-accent/20 hover:drop-shadow transition-colors"><Icon name="simple-icons:tiktok" class:list={"size-8"}></Icon></a>
+            </div>
         </div>
-    </div>
+    </Container>
 </footer>
